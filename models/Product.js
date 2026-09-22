@@ -5,12 +5,21 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      trim: true,
+    },
+
+    sku: {
+      type: String,
+      trim: true,
+      unique: true,
+      sparse: true,
     },
 
     barcode: {
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
 
     price: {
@@ -21,11 +30,13 @@ const productSchema = new mongoose.Schema(
     stock: {
       type: Number,
       required: true,
+      default: 0,
     },
 
     category: {
       type: String,
       required: true,
+      trim: true,
     },
 
     image: {
